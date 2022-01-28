@@ -1,10 +1,11 @@
 const Frontend = () =>{
 
     return(
-        <div className="container-fixed">
+        <div className="container-fixed sm:container-fixed">
         <div className="flex flex-col">
-          <div className="bg-slate-900 h-24">
-            <div className="flex mx-40 ">
+          <div className="w-auto items-center sticky top-0">
+          <div className="flex bg-slate-900 h-24 w-auto">
+            <div className="flex relative xl:mx-40 sm:mx-5 sm:text-center justify-between">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -14,7 +15,7 @@ const Frontend = () =>{
               >
                 <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
               </svg>
-              <h1 className="text-gray-200 px-2 py-10 text-2xl ">My Contacts</h1>
+              <h1 className="text-gray-200 px-2 py-10 sm:py-auto text-2xl sm:mx-5 sm:text-center ">My Contacts</h1>
             </div>
           </div>
           <div className="flex flex-col bg-gray-100 h-40">
@@ -23,7 +24,7 @@ const Frontend = () =>{
               <input
                 type="search"
                 id="site-search "
-                className="grow h-14 mr-10"
+                className="lg:grow h-14 mr-10 tracking-widest px-10 text-xl"
               />
             </div>
             <div className="flex flex-row my-auto">
@@ -32,18 +33,20 @@ const Frontend = () =>{
                 type="sort"
                 placeholder="First Name"
                 id="site-sort"
-                className="grow h-14 mr-10 tracking-widest px-10 text-xl"
+                className="lg:grow h-14 mr-10 tracking-widest px-10 text-xl"
               />
             </div>
           </div>
+          </div>
+          
           <div className="flex flex-col bg-gray-50 h-auto overflow-y-scroll">
             <div className="flex w-auto h-64 bg-gray-50 border border-b-gray-200 ">
               <img
                 src="mbac.jpg"
                 alt="me"
-                className="rounded-full w-56 h-56 mx-5 my-auto"
+                className="rounded-full w-56 h-56  mx-5  my-auto"
               />
-              <div className="flex flex-col mx-10 my-auto text-2xl">
+              <div className="flex flex-col mx-10  my-auto text-2xl">
                 <h1 className="text-black font-medium">Firstname Surname</h1>
                 <p className="text-pink-500">State / Country </p>
               </div>

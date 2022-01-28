@@ -1,4 +1,4 @@
-const Contact = () => {
+const ContactNavbar = () => {
   return (
     <div className="bg-slate-900 h-24">
       <div className="flex mx-48 ">
@@ -21,4 +21,4 @@ const Contact = () => {
     </div>
   );
 };
-export default Contact;
+export default ContactNavbar;

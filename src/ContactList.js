@@ -1,17 +1,32 @@
 const ContactList = () => {
   return (
-    <div className="bg-slate-900 h-24">
-      <div className="flex mx-40 ">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="w-8 text-gray-100"
-        >
-          <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-        </svg>
-        <h1 className="text-gray-200 px-2 py-10 text-2xl ">My Contacts</h1>
+    <div className="flex flex-col bg-gray-50 h-auto overflow-y-scroll">
+      <div className="flex w-auto h-64 bg-gray-50 border border-b-gray-200 ">
+        <img
+          src="mbac.jpg"
+          alt="me"
+          className="rounded-full w-56 h-56 mx-5 my-auto"
+        />
+        <div className="flex flex-col mx-10 my-auto text-2xl">
+          <h1 className="text-black font-medium">Firstname Surname</h1>
+          <p className="text-pink-500">State / Country </p>
+        </div>
+        <button className="text-gray-500 flex-none mr-20 ml-auto">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );

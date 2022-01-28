@@ -1,0 +1,21 @@
+const ContactListNavbar = () => {
+  return (
+    <div className="w-auto items-center sticky top-0">
+      <div className="bg-slate-900 h-24">
+        <div className="flex mx-40 ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="w-8 text-gray-100"
+          >
+            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+          </svg>
+          <h1 className="text-gray-200 px-2 py-10 text-2xl ">My Contacts</h1>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default ContactListNavbar;
