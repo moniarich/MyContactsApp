@@ -4,8 +4,7 @@ import Frontend from "./frontend.js";
 
 function App() {
   return (
-    //<Frontend/>
-    <Backend/>
+  <Backend/>
   );
 }
 
