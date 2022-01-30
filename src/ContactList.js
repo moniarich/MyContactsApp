@@ -1,4 +1,4 @@
-const ContactList = () => {
+const ContactList = ({ contacts }) => {
   return (
     <div className="flex flex-col bg-gray-50 h-auto overflow-y-scroll">
       <div className="flex w-auto h-64 bg-gray-50 border border-b-gray-200 ">

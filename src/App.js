@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
+import { Fragment } from "react/cjs/react.production.min";
 import "./App.css";
-import Backend from "./backend";
-import Frontend from "./frontend.js";
+import ContactList from "./ContactList";
+
+import ContactListNavbar from "./ContactListNavbar";
+import ContactListSearch from "./ContactListSearch";
 
 const Api = {
   results: [
@@ -2863,39 +2867,41 @@ const Api = {
   },
 };
 
-const search = Api.results.map(c => ({
-contact:`${c.name.first}, ${c.name.last}, ${c.location.state}, ${c.location.country}`,
-}))
-if(!search.includes(search.contact)){
- console.log("name or location")
-} else if (search === ""){
-  console.log("search by name or location")
-} else{
-console.log(search.contact)
-}
-
-
-const contacts = Api.results.map((contacts) => ({
-  picture: contacts.picture.large,
-  name: `${contacts.name.first} ${contacts.name.last}`,
-  location: `${contacts.location.state}/${contacts.location.country}`,
-}));
-//console.log(contacts);
-
-const sort = Api.results
-  .map((name) => ({
-    name: name.name.first,
-  }))
-  .sort(function (a, b) {
-    if (a.name > b.name) return 1;
-    if (a.name < b.name) return -1;
-    return 0;
-  });
-
-//console.log(sort);
-
 const App = () => {
-  return <Backend />;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sort, setSort] = useState("");
+  const [searchContact, setSearchContact] = useState([]);
+  const [contactList, setContactList] = useState([]);
+  const [contactDetails, setContactDetails] = useState([]);
+
+  return (
+    <Fragment>
+      <ContactListNavbar />
+      <ContactListSearch
+        setSearchTerm={setSearchTerm}
+        searchTerm={searchTerm}
+        setSort={setSort}
+        sort={sort}
+      />
+      <ContactList
+        contacts={Api.results.filter((r) =>
+          `${r.name.first} ${r.name.last} ${r.name.state} ${r.name.city}`
+            .includes(searchTerm)
+        ).sort(function(a,b) {
+          if (a.name.first < b.name.first) {
+            return -1;
+          }
+          if (a.name.first > b.name.first) {
+            return 1;
+            
+          }
+          return 0;
+          
+        }) 
+        }
+      />
+    </Fragment>
+  );
 };
 
 export default App;

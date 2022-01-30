@@ -1,4 +1,4 @@
-const ContactDetails = () => {
+const ContactDetails = (contactDetails,setContactDetails) => {
   return (
     <div className="flex flex-col bg-gray-50">
       <div className="w-full h-64">
@@ -9,36 +9,36 @@ const ContactDetails = () => {
           <tbody>
             <tr>
               <td className="text-pink-500">Age</td>
-              <td>25</td>
+              <td>{contactDetails.age}</td>
             </tr>
             <tr>
               <td className="text-pink-500">Email</td>
-              <td>email@domain.com</td>
+              <td>{contactDetails.email}</td>
             </tr>
             <tr>
               <td className="text-pink-500">Mobile</td>
-              <td>07891234567</td>
+              <td>{contactDetails.cell}</td>
             </tr>
             <tr>
               <td className="text-pink-500">Phone</td>
-              <td>01234567890</td>
+              <td>{contactDetails.phone}</td>
             </tr>
             <tr>
               <td className="text-pink-500">Address</td>
-              <td> 123 Name of Streat</td>
+              <td>{contactDetails.street}</td>
             </tr>
             <tr>
               <td></td>
-              <td> Name of City</td>
+              <td>{contactDetails.city}</td>
             </tr>
             <tr>
               <td></td>
-              <td> Name of State</td>
+              <td>{contactDetails.state}</td>
             </tr>
             <tr>
               <td></td>
-              <td> Postcode</td>
-              <td>Name of Country</td>
+              <td>{contactDetails.postcode}</td>
+              <td>{contactDetails.country}</td>
             </tr>
           </tbody>
         </table>
