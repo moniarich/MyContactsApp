@@ -2873,7 +2873,7 @@ const App = () => {
   const [searchContact, setSearchContact] = useState([]);
   const [contactList, setContactList] = useState([]);
   const [contactDetails, setContactDetails] = useState([]);
-
+  console.log(searchTerm);
   return (
     <Fragment>
       <ContactListNavbar />
@@ -2884,21 +2884,38 @@ const App = () => {
         sort={sort}
       />
       <ContactList
-        contacts={Api.results.filter((r) =>
-          `${r.name.first} ${r.name.last} ${r.name.state} ${r.name.city}`
-            .includes(searchTerm)
-        ).sort(function(a,b) {
-          if (a.name.first < b.name.first) {
-            return -1;
-          }
-          if (a.name.first > b.name.first) {
-            return 1;
-            
-          }
-          return 0;
-          
-        }) 
-        }
+        contacts={Api.results
+          .filter((r) =>
+            `${r.name.first} ${r.name.last} ${r.location.state} ${r.location.city}`
+              .toLowerCase()
+              .includes(searchTerm)
+          )
+          .sort((a, b) => {
+            if (sort === "first name") {
+              if (a.name.first < b.name.first) {
+                return -1;
+              }
+              if (a.name.first > b.name.first) {
+                return 1;
+              }
+              return 0;
+            }
+            if (sort === "last name") {
+              if (a.name.last < b.name.last) {
+                return -1;
+              }
+              if (a.name.last > b.name.last) {
+                return 1;
+              }
+              return 0;
+            }
+            return 0;
+          })
+          .map((r) => ({
+            img: r.picture.large,
+            fullname: `${r.name.first} ${r.name.last}`,
+            location: `${r.location.state} / ${r.location.city}`,
+          }))}
       />
     </Fragment>
   );
