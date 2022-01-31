@@ -6,6 +6,7 @@ import ContactList from "./ContactList";
 
 import ContactListNavbar from "./ContactListNavbar";
 import ContactListSearch from "./ContactListSearch";
+import ContactNavbar from "./ContactNavbar";
 
 const Api = {
   results: [
@@ -2878,57 +2879,52 @@ const App = () => {
   console.log(searchTerm);
   return (
     <Fragment>
-      <ContactListNavbar />
-      <ContactListSearch
-        setSearchTerm={setSearchTerm}
-        searchTerm={searchTerm}
-        setSort={setSort}
-        sort={sort}
+      <ContactListNavbar
+        setCurentContact={setCurentContact}
+        curentContact={curentContact}
       />
+
       {!curentContact ? (
-        <ContactList
-          setCurentContact={setCurentContact}
-          contacts={Api.results
-            .filter((r) =>
-              `${r.name.first} ${r.name.last} ${r.location.state} ${r.location.city}`
-                .toLowerCase()
-                .includes(searchTerm)
-            )
-            .sort((a, b) => {
-              if (sort === "first name") {
-                if (a.name.first < b.name.first) {
-                  return -1;
+        <>
+          <ContactListSearch
+            setSearchTerm={setSearchTerm}
+            searchTerm={searchTerm}
+            setSort={setSort}
+            sort={sort}
+          />
+          <ContactList
+            setCurentContact={setCurentContact}
+            contacts={Api.results
+              .filter((r) =>
+                `${r.name.first} ${r.name.last} ${r.location.state} ${r.location.city}`
+                  .toLowerCase()
+                  .includes(searchTerm)
+              )
+              .sort((a, b) => {
+                if (sort === "first name") {
+                  if (a.name.first < b.name.first) {
+                    return -1;
+                  }
+                  if (a.name.first > b.name.first) {
+                    return 1;
+                  }
+                  return 0;
                 }
-                if (a.name.first > b.name.first) {
-                  return 1;
+                if (sort === "last name") {
+                  if (a.name.last < b.name.last) {
+                    return -1;
+                  }
+                  if (a.name.last > b.name.last) {
+                    return 1;
+                  }
+                  return 0;
                 }
                 return 0;
-              }
-              if (sort === "last name") {
-                if (a.name.last < b.name.last) {
-                  return -1;
-                }
-                if (a.name.last > b.name.last) {
-                  return 1;
-                }
-                return 0;
-              }
-              return 0;
-            })}
-        />
+              })}
+          />
+        </>
       ) : (
-        <ContactDetails
-          contactDetails={Api.results.map((d) => ({
-            fullname: `${d.name.first} ${d.name.last}`,
-            img: d.picture.large,
-            age: d.dob.age,
-            email: d.email,
-            mobile: d.cell,
-            phone: d.phone,
-            address: `${d.location.street.number} ${d.location.street.name} n/ ${d.location.city}
-           n/ ${d.location.state} n/ ${d.location.postcode} ${d.location.country}`,
-          }))}
-        />
+        <ContactDetails contactDetails={curentContact} />
       )}
     </Fragment>
   );

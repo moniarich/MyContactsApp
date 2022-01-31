@@ -1,5 +1,5 @@
-const ContactDetails = (contactDetails, setContactDetails) => {
-  console.log(contactDetails,'c')
+const ContactDetails = ({ contactDetails, setContactDetails }) => {
+  console.log(contactDetails, "c");
   return (
     <div className="flex flex-col bg-gray-50">
       <div className="w-full h-64">
@@ -10,7 +10,7 @@ const ContactDetails = (contactDetails, setContactDetails) => {
           <tbody>
             <tr>
               <td className="text-pink-500">Age</td>
-              <td>{contactDetails.age}</td>
+              <td>{contactDetails.dob.age}</td>
             </tr>
             <tr>
               <td className="text-pink-500">Email</td>
@@ -26,7 +26,12 @@ const ContactDetails = (contactDetails, setContactDetails) => {
             </tr>
             <tr>
               <td className="text-pink-500">Address</td>
-              <td>{contactDetails.address}</td>
+              <td>
+                <p>{`${contactDetails.location.street.number} ${contactDetails.location.street.name}`}</p>
+                <p>{`${contactDetails.location.city}`}</p>
+                <p>{`${contactDetails.location.state}`}</p>
+                <p>{`${contactDetails.location.postcode} ${contactDetails.location.country}`}</p>
+              </td>
             </tr>
           </tbody>
         </table>
