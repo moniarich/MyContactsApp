@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Fragment } from "react/cjs/react.production.min";
 import "./App.css";
+import ContactDetails from "./ContactDetails";
 import ContactList from "./ContactList";
 
 import ContactListNavbar from "./ContactListNavbar";
@@ -2870,6 +2871,7 @@ const Api = {
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("");
+  const [curentContact, setCurentContact] = useState(undefined);
   const [searchContact, setSearchContact] = useState([]);
   const [contactList, setContactList] = useState([]);
   const [contactDetails, setContactDetails] = useState([]);
@@ -2883,40 +2885,51 @@ const App = () => {
         setSort={setSort}
         sort={sort}
       />
-      <ContactList
-        contacts={Api.results
-          .filter((r) =>
-            `${r.name.first} ${r.name.last} ${r.location.state} ${r.location.city}`
-              .toLowerCase()
-              .includes(searchTerm)
-          )
-          .sort((a, b) => {
-            if (sort === "first name") {
-              if (a.name.first < b.name.first) {
-                return -1;
+      {!curentContact ? (
+        <ContactList
+          setCurentContact={setCurentContact}
+          contacts={Api.results
+            .filter((r) =>
+              `${r.name.first} ${r.name.last} ${r.location.state} ${r.location.city}`
+                .toLowerCase()
+                .includes(searchTerm)
+            )
+            .sort((a, b) => {
+              if (sort === "first name") {
+                if (a.name.first < b.name.first) {
+                  return -1;
+                }
+                if (a.name.first > b.name.first) {
+                  return 1;
+                }
+                return 0;
               }
-              if (a.name.first > b.name.first) {
-                return 1;
+              if (sort === "last name") {
+                if (a.name.last < b.name.last) {
+                  return -1;
+                }
+                if (a.name.last > b.name.last) {
+                  return 1;
+                }
+                return 0;
               }
               return 0;
-            }
-            if (sort === "last name") {
-              if (a.name.last < b.name.last) {
-                return -1;
-              }
-              if (a.name.last > b.name.last) {
-                return 1;
-              }
-              return 0;
-            }
-            return 0;
-          })
-          .map((r) => ({
-            img: r.picture.large,
-            fullname: `${r.name.first} ${r.name.last}`,
-            location: `${r.location.state} / ${r.location.city}`,
+            })}
+        />
+      ) : (
+        <ContactDetails
+          contactDetails={Api.results.map((d) => ({
+            fullname: `${d.name.first} ${d.name.last}`,
+            img: d.picture.large,
+            age: d.dob.age,
+            email: d.email,
+            mobile: d.cell,
+            phone: d.phone,
+            address: `${d.location.street.number} ${d.location.street.name} n/ ${d.location.city}
+           n/ ${d.location.state} n/ ${d.location.postcode} ${d.location.country}`,
           }))}
-      />
+        />
+      )}
     </Fragment>
   );
 };

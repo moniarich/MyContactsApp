@@ -1,6 +1,6 @@
 const ContactListNavbar = () => {
   return (
-    <div className="w-auto items-center sticky top-0">
+    <div className="flex-fixed w-auto items-center sticky top-0">
       <div className="bg-slate-900 h-24">
         <div className="flex mx-40 ">
           <svg

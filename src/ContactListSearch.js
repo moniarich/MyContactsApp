@@ -3,20 +3,20 @@ const ContactListSearch = ({ searchTerm, setSearchTerm, sort, setSort }) => {
     <div className="w-auto items-center sticky top-0">
       <div className="flex flex-col bg-gray-100 h-40">
         <div className="flex flex-row my-auto static">
-          <h2 className="w-64 text-center">Search</h2>
-          <div className="flex relative">
+          <h2 className="w-64 m-auto text-center">Search</h2>
+          <div className="flex relative w-screen">
             <input
               value={searchTerm}
               type="search"
               id="site-search "
-              className="lg:grow h-14 w-10-screen tracking-widest px-10 text-xl "
+              className="lg:grow h-14 px-10 text-xl "
               onChange={(e) => {
                 setSearchTerm(e.target.value);
               }}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute top-5 left-96 h-16 w-16 stroke-gray-300 fill-transparent"
+              className="absolute top-5 mx-2 h-16 w-16 stroke-gray-300 fill-transparent"
             >
               <path
                 stroke-linecap="round"
@@ -27,13 +27,13 @@ const ContactListSearch = ({ searchTerm, setSearchTerm, sort, setSort }) => {
             </svg>
           </div>
         </div>
-        <div className="flex flex-row my-auto">
+        <div className="flex flex-row my-auto w-screen">
           <h2 className="m-auto w-64 text-center"> Sort</h2>
           <select
             name="name"
             id="name"
-            className="lg:grow h-14 mr-10 tracking-widest bg-white px-10 text-xl flex justify-end items-center
-             py-2 pr-5 w-full font-medium text-gray-700 border-b border-gray-100"
+            className="lg:grow h-14 mr-10 bg-white px-10 text-xl flex justify-end items-center
+             py-2 pr-5 w-full font-medium text-gray-500 border-b border-gray-100"
              onChange={(e) => {setSort(e.target.value)}}
           >
             <option value="first name">First Name</option>
