@@ -1,15 +1,15 @@
 const ContactListSearch = ({ searchTerm, setSearchTerm, sort, setSort }) => {
   return (
-    <div className="w-auto items-center sticky top-0">
+    <div className="flex-fixed items-center sticky top-24 overflow:hidden">
       <div className="flex flex-col bg-gray-100 h-40">
-        <div className="flex flex-row my-auto static">
-          <h2 className="w-64 m-auto text-center">Search</h2>
-          <div className="flex relative w-screen">
+        <div className="flex w-auto my-auto">
+          <h2 className="w-64 my-auto ml-5  lg:text-center sm:text-right pl-2">Search</h2>
+          <div className="flex relative w-full">
             <input
               value={searchTerm}
               type="search"
               id="site-search "
-              className="lg:grow h-14 px-10 text-xl "
+              className="lg:grow h-14 text-xl w-full mr-10"
               onChange={(e) => {
                 setSearchTerm(e.target.value);
               }}
@@ -27,8 +27,8 @@ const ContactListSearch = ({ searchTerm, setSearchTerm, sort, setSort }) => {
             </svg>
           </div>
         </div>
-        <div className="flex flex-row my-auto w-screen">
-          <h2 className="m-auto w-64 text-center"> Sort</h2>
+        <div className="flex my-auto w-auto lg:pl-0 sm:pl-10">
+          <h2 className="my-auto ml-5 w-64 lg:text-center sm:text-right pl-2"> Sort</h2>
           <select
             name="name"
             id="name"
