@@ -1,47 +1,57 @@
-const ContactDetails = ({ contactDetails, setContactDetails }) => {
+const ContactDetails = ({ contactDetails }) => {
   console.log(contactDetails, "c");
   return (
-    <div className="flex flex-col bg-gray-50">
+    <div className="flex flex-col bg-gray-50 h-screen justify-between">
       <div>
-        <img className="w-full sm:w-64" src={contactDetails.picture.large} alt="photoContact" />
+        <img
+          className="w-full sm:w-64"
+          src={contactDetails.picture.large}
+          alt="photoContact"
+        />
       </div>
-      <div className="flex w-full h-full mt-5 ml-5">
-        <table className="table-fixed lg:w-64 sm:w-32 mx-10 sm:mx-5 mb-5 text-start lg:text-lg sm:text-sm">
+      <div className="flex mt-10 lg:pt-10 pb-24 pl-10 bg-gray-50">
+        <table className="table-fixed sm:mx-5 mb-5 text-left lg:text-2xl sm:text-sm">
           <tbody>
             <tr>
-              <td className="text-pink-500">Age</td>
-              <td>{contactDetails.dob.age}</td>
+              <td className="text-pink-500 pr-2">Age</td>
+              <td className="pl-10 lg:py-2 sm-py-1">
+                {contactDetails.dob.age}
+              </td>
             </tr>
             <tr>
-              <td className="text-pink-500">Email</td>
-              <td>{contactDetails.email}</td>
+              <td className="text-pink-500 pr-2">Email</td>
+              <td className="pl-10 lg:py-2 sm-py-1">{contactDetails.email}</td>
             </tr>
             <tr>
-              <td className="text-pink-500">Mobile</td>
-              <td>{contactDetails.cell}</td>
+              <td className="text-pink-500 pr-2">Mobile</td>
+              <td className="pl-10 lg:py-2 sm-py-1">{contactDetails.cell}</td>
             </tr>
             <tr>
-              <td className="text-pink-500">Phone</td>
-              <td>{contactDetails.phone}</td>
+              <td className="text-pink-500 pr-2">Phone</td>
+              <td className="pl-10 lg:py-2 sm-py-1">{contactDetails.phone}</td>
             </tr>
             <tr>
-              <td className="text-pink-500">Address</td>
-              <td className="pt-4">
-                <p>{`${contactDetails.location.street.number} ${contactDetails.location.street.name}`}</p>
-                <p>{`${contactDetails.location.city}`}</p>
-                <p>{`${contactDetails.location.state}`}</p>
-                <p>{`${contactDetails.location.postcode} ${contactDetails.location.country}`}</p>
+              <td className="text-pink-500 pr-2 ">Address</td>
+              <td className="pt-4 pl-10">
+                <p className="lg:py-2 sm-py-1">{`${contactDetails.location.street.number} ${contactDetails.location.street.name}`}</p>
+                <p className="lg:py-2 sm-py-1">{`${contactDetails.location.city}`}</p>
+                <p className="lg:py-2 sm-py-1">{`${contactDetails.location.state}`}</p>
+                <p className="lg:py-2 sm-py-1">{`${contactDetails.location.postcode} ${contactDetails.location.country}`}</p>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div className="flex w-full border justify-between border-t-gray-200">
-        <a href={contactDetails.cell}>
-          <button className="text-blue-700 ml-2" >Call</button>
+      <div className="flex static bottom-0 lg:p-4 md:p-2 border justify-between border-t-gray-200 ">
+        <a className="text-blue-700 ml-10" href={`tel:{contactDetails.cell}`}>
+          Call
         </a>
-        <a target="”_blank”" href={contactDetails.email}>
-          <button className="text-blue-700 mr-2">Email</button>
+        <a
+          className="text-blue-700 mr-10"
+          target="”_blank”"
+          href={`mailto:{contactDetails.email}`}
+        >
+          Email
         </a>
       </div>
     </div>

@@ -2,14 +2,14 @@ const ContactListSearch = ({ searchTerm, setSearchTerm, sort, setSort }) => {
   return (
     <div className="flex-fixed items-center sticky top-24 overflow:hidden">
       <div className="flex flex-col bg-gray-100 h-40">
-        <div className="flex w-auto my-auto">
-          <h2 className="w-64 my-auto ml-5  lg:text-center sm:text-right pl-2">Search</h2>
-          <div className="flex relative w-full">
+        <div className="flex w-full my-auto">
+          <h2 className="my-auto m-5 lg:text-center sm:text-right">Search</h2>
+          <div className="flex relative w-full my-auto">
             <input
               value={searchTerm}
               type="search"
               id="site-search "
-              className="lg:grow h-14 text-xl w-full mr-10"
+              className=" h-14 text-xl w-full mr-10"
               onChange={(e) => {
                 setSearchTerm(e.target.value);
               }}
@@ -27,14 +27,16 @@ const ContactListSearch = ({ searchTerm, setSearchTerm, sort, setSort }) => {
             </svg>
           </div>
         </div>
-        <div className="flex my-auto w-auto lg:pl-0 sm:pl-10">
-          <h2 className="my-auto ml-5 w-64 lg:text-center sm:text-right pl-2"> Sort</h2>
+        <div className="flex relative my-auto w-full">
+          <h2 className="my-auto m-7 lg:text-center sm:text-right"> Sort</h2>
           <select
             name="name"
             id="name"
-            className="lg:grow h-14 mr-10 bg-white px-10 text-xl flex justify-end items-center
+            className="lg:grow h-14 mr-10 bg-white px-5 text-xl flex justify-end items-center
              py-2 pr-5 w-full font-medium text-gray-500 border-b border-gray-100"
-             onChange={(e) => {setSort(e.target.value)}}
+            onChange={(e) => {
+              setSort(e.target.value);
+            }}
           >
             <option value="first name">First Name</option>
             <option value="last name">Last Name</option>

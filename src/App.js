@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Fragment } from "react/cjs/react.production.min";
-import "./App.css";
 import ContactDetails from "./ContactDetails";
 import ContactList from "./ContactList";
-
 import ContactListNavbar from "./ContactListNavbar";
 import ContactListSearch from "./ContactListSearch";
-import ContactNavbar from "./ContactNavbar";
+
 
 const Api = {
   results: [
@@ -2873,9 +2871,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("");
   const [curentContact, setCurentContact] = useState(undefined);
-  const [searchContact, setSearchContact] = useState([]);
-  const [contactList, setContactList] = useState([]);
-  const [contactDetails, setContactDetails] = useState([]);
+
   console.log(searchTerm);
   return (
     <Fragment>

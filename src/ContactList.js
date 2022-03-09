@@ -1,10 +1,5 @@
 const ContactList = ({ contacts, setCurentContact }) => {
-  // .map((r) => ({
-  //   img: r.picture.large,
-  //   fullname: `${r.name.first} ${r.name.last}`,
-  //   location: `${r.location.state} / ${r.location.city}`,
-  // })
-  console.log(contacts);
+  
   return (
     <div className="fixed w-full h-full">
       <div className="bg-gray-50 h-full flex-grow-0 overflow-y-auto">
