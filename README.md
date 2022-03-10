@@ -19,5 +19,9 @@ Run:
 npm start
 ```
 
+## Link to the application:
+http://mycontactsapp.s3-website-eu-west-1.amazonaws.com/
+
+
 ## License
 Distributed under the MIT License.
