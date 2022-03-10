@@ -1,5 +1,5 @@
 const ContactDetails = ({ contactDetails }) => {
-  console.log(contactDetails, "c");
+  console.log(contactDetails.cell, "c");
   return (
     <div className="flex flex-col bg-gray-50 h-screen justify-between">
       <div>
@@ -43,13 +43,13 @@ const ContactDetails = ({ contactDetails }) => {
         </table>
       </div>
       <div className="flex static bottom-0 lg:p-4 md:p-2 border justify-between border-t-gray-200 ">
-        <a className="text-blue-700 ml-10" href={`tel:{contactDetails.cell}`}>
+        <a className="text-blue-700 ml-10" href={`tel:${contactDetails.cell}`}>
           Call
         </a>
         <a
           className="text-blue-700 mr-10"
           target="”_blank”"
-          href={`mailto:{contactDetails.email}`}
+          href={`mailto:${contactDetails.email}`}
         >
           Email
         </a>
